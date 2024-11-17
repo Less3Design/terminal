@@ -668,8 +668,10 @@ namespace Less3.Terminal.Editor
 
         private void Update()
         {
-            JumpToNowButton.style.display = (scrollView.verticalScroller.value == scrollView.verticalScroller.highValue || scrollView.verticalScroller.highValue < 0) ? DisplayStyle.None : DisplayStyle.Flex;
-
+            if (JumpToNowButton != null && scrollView != null && scrollView.verticalScroller != null)
+            {
+                JumpToNowButton.style.display = (scrollView.verticalScroller.value == scrollView.verticalScroller.highValue || scrollView.verticalScroller.highValue < 0) ? DisplayStyle.None : DisplayStyle.Flex;
+            }
             if (hasFocus && commandField != null)
             {
                 if (commandField.focusController.focusedElement != commandField)
