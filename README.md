@@ -4,6 +4,8 @@ A simple Unity console replacement with a command line.
 
 ## Console Replacement
 The console can output anything sent to `Application.logMessageReceived`. So regular Unity logs appear if you enable them.
+- Compilation errors are preserved like the Console and can be double clicked.
+- Stacktraces are supported with links (package errors untested)
 
 ## Commands
 A command can be created by adding the `[Command]` attribute to any static method with a single `string[]` parameter.
