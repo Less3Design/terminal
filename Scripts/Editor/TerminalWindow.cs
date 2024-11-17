@@ -324,7 +324,9 @@ namespace Less3.Terminal.Editor
             });
 
             commandField = terminalRoot.Q<TextField>("CommandField");
+            commandField.selectAllOnFocus = true;
             enterCommandHint = terminalRoot.Q<VisualElement>("EnterCommandHint");
+            commandField.Focus();
 
             commandField.RegisterValueChangedCallback(evt =>
             {
@@ -622,7 +624,13 @@ namespace Less3.Terminal.Editor
             if (commandField != null)
             {
                 commandField.style.display = DisplayStyle.Flex;
+                commandField.Focus();
             }
+        }
+
+        private void OnBecameVisible()
+        {
+            Focus();
         }
 
         private void OnLostFocus()
