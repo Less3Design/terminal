@@ -510,9 +510,9 @@ namespace Less3.Terminal.Editor
                     int end = line.IndexOf(")", start);
                     if (end != -1)
                     {
-                        string path = line.Substring(start + 4, end - start - 4);
+                        string path = line.Substring(start + 4, Mathf.Max(end - start - 4, 0));
                         string[] parts = path.Split(':');
-                        if (parts.Length == 2)
+                        if (parts.Length == 2 && !path.Contains('<'))
                         {
                             string file = parts[0];
                             int lineNum = int.Parse(parts[1]);
