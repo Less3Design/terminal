@@ -518,7 +518,7 @@ namespace Less3.Terminal.Editor
                             int lineNum = int.Parse(parts[1]);
                             if (!string.IsNullOrEmpty(file))
                             {
-                                lines[i] = line.Substring(0, start) + "(at <color=#4C7EFF><u><link=\"" + file + "%" + lineNum + "\"><a>" + file + ":" + lineNum + "</link></u></color>)";
+                                lines[i] = line.Substring(0, start) + "(at <color=#4C7EFF><u><link=\"" + file + "%" + lineNum + "\">" + file + ":" + lineNum + "</link></u></color>)";
                             }
                         }
                     }
