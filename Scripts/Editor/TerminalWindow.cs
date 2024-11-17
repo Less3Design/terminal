@@ -178,7 +178,11 @@ namespace Less3.Terminal.Editor
             allEntries.Add(entry);
             FilterNewEntry(entry);
 
-            bool scrollTo = scrollView.verticalScroller.value == scrollView.verticalScroller.highValue || scrollView.verticalScroller.highValue < 0;
+            bool scrollTo = false;
+            if (scrollView != null && scrollView.verticalScroller != null)
+            {
+                scrollTo = scrollView.verticalScroller.value == scrollView.verticalScroller.highValue || scrollView.verticalScroller.highValue < 0;
+            }
 
             if (listView != null)
             {
@@ -203,7 +207,11 @@ namespace Less3.Terminal.Editor
             };
             allEntries.Add(entry);
             FilterNewEntry(entry);
-            bool scrollTo = scrollView.verticalScroller.value == scrollView.verticalScroller.highValue || scrollView.verticalScroller.highValue < 0;
+            bool scrollTo = false;
+            if (scrollView != null && scrollView.verticalScroller != null)
+            {
+                scrollTo = scrollView.verticalScroller.value == scrollView.verticalScroller.highValue || scrollView.verticalScroller.highValue < 0;
+            }
 
             if (listView != null)
             {
@@ -230,7 +238,11 @@ namespace Less3.Terminal.Editor
             allEntries.Add(entry);
             FilterNewEntry(entry);
 
-            bool scrollTo = scrollView.verticalScroller.value == scrollView.verticalScroller.highValue || scrollView.verticalScroller.highValue < 0;
+            bool scrollTo = false;
+            if (scrollView != null && scrollView.verticalScroller != null)
+            {
+                scrollTo = scrollView.verticalScroller.value == scrollView.verticalScroller.highValue || scrollView.verticalScroller.highValue < 0;
+            }
 
             if (listView != null)
             {
