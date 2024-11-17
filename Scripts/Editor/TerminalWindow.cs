@@ -7,7 +7,6 @@ using UnityEngine.UIElements.Experimental;
 
 namespace Less3.Terminal.Editor
 {
-
     public struct TerminalEntry
     {
         public string message;

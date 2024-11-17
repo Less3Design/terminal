@@ -9,9 +9,9 @@ namespace Less3.Terminal
         [Command("help")]
         public static void Help(string[] args)
         {
-            Log.Print("------------------------");
+            Log.Print("----------------------------");
             Log.Print("Welcome to the terminal!");
-            Log.Print("------------------------");
+            Log.Print("----------------------------");
             Log.Print("");
             Log.Print("You can trigger commands defined in c# with a [Command] attribute.");
             Log.Print("Commands must be static and have a string[] parameter.");
@@ -22,7 +22,6 @@ namespace Less3.Terminal
         [Command("commands")]
         public static void Commands(string[] args)
         {
-            Log.Print("Commands:");
             var commands = TerminalManager.GetCommands();
             foreach (var command in commands)
             {
