@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
-    <Style src="project://database/Assets/Less3_Terminal/TerminalWindowStyle.uss?fileID=7433441132597879392&amp;guid=d125781877fb0634c82d883021bf1996&amp;type=3#TerminalWindowStyle" />
+    <Style src="project://database/Assets/Less3_Terminal/terminal/VisualElements/TerminalWindowStyle.uss?fileID=7433441132597879392&amp;guid=d125781877fb0634c82d883021bf1996&amp;type=3#TerminalWindowStyle" />
     <ui:VisualElement name="BG" class="background" style="flex-grow: 1; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
         <ui:VisualElement name="ListAndOverlays" style="flex-grow: 1; align-items: stretch; flex-shrink: 1;">
             <ui:ListView focusable="true" name="ListView" style="flex-grow: 1;" />
@@ -9,9 +9,9 @@
             <ui:Label tabindex="-1" text="Error Label Here" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StackTraceName" style="color: rgba(255, 255, 255, 0.5); font-size: 10px; margin-top: 4px; margin-right: 0; margin-bottom: 2px; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-font-style: bold; white-space: normal;" />
             <ui:Label tabindex="-1" text="reaslalsdj aselrkj aseasd&#10;asdf &#10;as" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StackTraceBody" style="color: rgb(255, 255, 255); font-size: 10px; margin-top: 0; margin-right: 0; margin-bottom: 2px; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; flex-wrap: wrap; white-space: normal;" />
         </ui:ScrollView>
-        <ui:VisualElement name="CommandZone" style="flex-grow: 0; flex-shrink: 0; background-color: rgb(25, 25, 25); flex-direction: row; align-items: center; padding-top: 12px; padding-right: 12px; padding-bottom: 12px; padding-left: 12px;">
-            <ui:VisualElement name="carot" class="carot" style="flex-grow: 0; width: 14px; height: 14px; flex-shrink: 0; padding-right: 0; margin-right: 8px; background-image: url(&apos;project://database/Assets/Less3_Terminal/icon_terminalCarot.png?fileID=2800000&amp;guid=0ef8b986229043b4caf4f67ae19ffe2e&amp;type=3#icon_terminalCarot&apos;);" />
-            <ui:Label tabindex="-1" text="Enter Command..." parse-escape-sequences="true" display-tooltip-when-elided="true" name="EnterCommandHint" style="position: absolute; left: 36px; opacity: 0.3;" />
+        <ui:VisualElement name="CommandZone" picking-mode="Ignore" style="flex-grow: 0; flex-shrink: 0; background-color: rgb(25, 25, 25); flex-direction: row; align-items: center; padding-top: 12px; padding-right: 12px; padding-bottom: 12px; padding-left: 12px;">
+            <ui:VisualElement name="carot" picking-mode="Ignore" class="carot" style="flex-grow: 0; width: 14px; height: 14px; flex-shrink: 0; padding-right: 0; margin-right: 8px; background-image: url(&apos;project://database/Assets/Less3_Terminal/terminal/Icons/icon_terminalCarot.png?fileID=2800000&amp;guid=0ef8b986229043b4caf4f67ae19ffe2e&amp;type=3#icon_terminalCarot&apos;);" />
+            <ui:Label tabindex="-1" text="Enter Command..." parse-escape-sequences="true" display-tooltip-when-elided="true" name="EnterCommandHint" picking-mode="Ignore" style="position: absolute; left: 36px; opacity: 0.3;" />
             <ui:TextField picking-mode="Ignore" name="CommandField" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; flex-grow: 0; flex-shrink: 0; height: 14px;" />
         </ui:VisualElement>
     </ui:VisualElement>

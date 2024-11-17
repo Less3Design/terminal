@@ -15,6 +15,7 @@ namespace Less3.Terminal.Editor
         public int frame;
         public System.DateTime time;
         public TerminalEntryType type;
+        public bool isCompilationLog;
     }
 
     public enum TerminalEntryType
@@ -184,7 +185,8 @@ namespace Less3.Terminal.Editor
                 stackTrace = stackTrace,
                 frame = Time.frameCount,
                 time = System.DateTime.Now,
-                type = GetEntryType(type)
+                type = GetEntryType(type),
+                isCompilationLog = EditorApplication.isCompiling,
             };
             allEntries.Add(entry);
             FilterNewEntry(entry);
@@ -270,6 +272,7 @@ namespace Less3.Terminal.Editor
             listView.itemsSource = filteredEntries;
             listView.fixedItemHeight = 16;
             listView.selectionChanged += objects => SelectItem((TerminalEntry)objects.First());
+            listView.itemsChosen += objects => DoubleClickItem((TerminalEntry)objects.First());
 
             stackTraceName = terminalRoot.Q<Label>("StackTraceName");
             stackTraceText = terminalRoot.Q<Label>("StackTraceBody");
@@ -361,6 +364,21 @@ namespace Less3.Terminal.Editor
             }
 
             stackTraceRoot.style.display = DisplayStyle.Flex;
+        }
+
+        private void DoubleClickItem(TerminalEntry entry)
+        {
+            if (!entry.isCompilationLog)
+                return;
+
+            string path = entry.message.Split('(')[0];
+            string lineNum = entry.message.Split('(')[1].Split(',')[0];
+
+            var obj = AssetDatabase.LoadAssetAtPath<Object>(path);
+            if (obj != null)
+            {
+                AssetDatabase.OpenAsset(obj, int.Parse(lineNum));
+            }
         }
 
         private void BindItem(VisualElement item, int index)
@@ -476,9 +494,16 @@ namespace Less3.Terminal.Editor
 
             menu.AddItem(new GUIContent("Clear"), false, () =>
             {
-                filteredEntries.Clear();
+                for (int i = allEntries.Count - 1; i >= 0; i--)
+                {
+                    if (allEntries[i].isCompilationLog)
+                    {
+                        continue;
+                    }
+                    allEntries.RemoveAt(i);
+                }
+                RefilterAllEntries();
                 stackTraceRoot.style.display = DisplayStyle.None;
-                listView.Rebuild();
             });
             menu.AddSeparator("");
 
