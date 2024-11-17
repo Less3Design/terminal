@@ -63,6 +63,46 @@ namespace Less3.Terminal.Editor
             get => EditorPrefs.GetInt(TIMESTAMP_MODE, 1);
             set => EditorPrefs.SetInt(TIMESTAMP_MODE, value);
         }
+
+        // 0 = 10, 1 = 10.5, 2 = 11, 3 = 12
+        private static string TEXT_SIZE = "TerminalWindow.TextSize";
+        public static int textSize
+        {
+            get => EditorPrefs.GetInt(TEXT_SIZE, 0);
+            set => EditorPrefs.SetInt(TEXT_SIZE, value);
+        }
+        public static float GetTextSizeFloat()
+        {
+            switch (textSize)
+            {
+                case 0:
+                    return 10;
+                case 1:
+                    return 10.5f;
+                case 2:
+                    return 11f;
+                case 3:
+                    return 12f;
+                default:
+                    return 10f;
+            }
+        }
+        public static int GetLineHeight()
+        {
+            switch (textSize)
+            {
+                case 0:
+                    return 16;
+                case 1:
+                    return 17;
+                case 2:
+                    return 18;
+                case 3:
+                    return 20;
+                default:
+                    return 16;
+            }
+        }
     }
 
     public class TerminalWindow : EditorWindow
@@ -269,7 +309,7 @@ namespace Less3.Terminal.Editor
             listView.makeItem = MakeItem;
             listView.bindItem = BindItem;
             listView.itemsSource = filteredEntries;
-            listView.fixedItemHeight = 16;
+            listView.fixedItemHeight = TerminalWindowSettings.GetLineHeight();
             listView.selectionChanged += objects => SelectItem((TerminalEntry)objects.First());
             listView.itemsChosen += objects => DoubleClickItem((TerminalEntry)objects.First());
 
@@ -385,6 +425,7 @@ namespace Less3.Terminal.Editor
             TerminalEntry entry = filteredEntries[index];
             Label text = item.Q<Label>("Text");
             text.text = entry.message;
+            text.style.fontSize = TerminalWindowSettings.GetTextSizeFloat();
             text.ClearClassList();
             text.AddToClassList("entryText");
             switch (entry.type)
@@ -540,6 +581,31 @@ namespace Less3.Terminal.Editor
             menu.AddItem(new GUIContent("Timestamp/Frame"), TerminalWindowSettings.timestampMode == 2, () =>
             {
                 TerminalWindowSettings.timestampMode = 2;
+                listView.Rebuild();
+            });
+
+            menu.AddItem(new GUIContent("Text Size/Small"), TerminalWindowSettings.textSize == 0, () =>
+            {
+                TerminalWindowSettings.textSize = 0;
+                listView.fixedItemHeight = TerminalWindowSettings.GetLineHeight();
+                listView.Rebuild();
+            });
+            menu.AddItem(new GUIContent("Text Size/Medium"), TerminalWindowSettings.textSize == 1, () =>
+            {
+                TerminalWindowSettings.textSize = 1;
+                listView.fixedItemHeight = TerminalWindowSettings.GetLineHeight();
+                listView.Rebuild();
+            });
+            menu.AddItem(new GUIContent("Text Size/Large"), TerminalWindowSettings.textSize == 2, () =>
+            {
+                TerminalWindowSettings.textSize = 2;
+                listView.fixedItemHeight = TerminalWindowSettings.GetLineHeight();
+                listView.Rebuild();
+            });
+            menu.AddItem(new GUIContent("Text Size/Extra Large"), TerminalWindowSettings.textSize == 3, () =>
+            {
+                TerminalWindowSettings.textSize = 3;
+                listView.fixedItemHeight = TerminalWindowSettings.GetLineHeight();
                 listView.Rebuild();
             });
 
