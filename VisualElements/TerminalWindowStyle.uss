@@ -1,0 +1,169 @@
+.background {
+    background-color: rgb(32, 32, 32);
+}
+
+.entry {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 2px;
+    padding-right: 4px;
+    padding-bottom: 2px;
+    padding-left: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.entry:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+:checked > .entry {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.entryText {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    flex-grow: 1;
+    font-size: 10px;
+    text-overflow: ellipsis;
+    flex-shrink: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    color: rgb(165, 165, 165);
+}
+
+.entryTimestamp {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    font-size: 9px;
+    color: rgba(255, 255, 255, 0.3);
+    flex-shrink: 0;
+}
+
+.entryDot {
+    width: 4px;
+    height: 4px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    background-color: rgba(255, 255, 255, 0.15);
+    margin-right: 4px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+:root {
+    flex-grow: 1;
+}
+
+.unity-text-field__input {
+    background-color: rgba(0, 0, 0, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+}
+
+.listview-item {
+    border-left-color: rgb(255, 0, 0);
+    border-right-color: rgb(255, 0, 0);
+    border-top-color: rgb(255, 0, 0);
+    border-bottom-color: rgb(255, 0, 0);
+}
+
+.unity-list-view__item {
+    background-color: rgba(0, 0, 0, 0);
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+}
+
+.entryTextWarning {
+    color: rgba(255, 255, 0, 0.6);
+}
+
+.entryTextError {
+    color: rgba(255, 71, 71, 0.6);
+}
+
+.entryTextCommand {
+    color: rgb(0, 140, 255);
+}
+
+.entryTextCommandOut {
+    color: rgba(13, 146, 255, 0.95);
+}
+
+.entryDotWarning {
+    background-color: rgba(255, 255, 0, 0.8);
+}
+
+.entryDotError {
+    background-color: rgba(255, 71, 71, 0.8);
+}
+
+.entryDotCommand {
+    background-color: rgb(0, 140, 255);
+}
+
+.entryDotCommandOut {
+    background-color: rgba(0, 140, 255, 0);
+}
+
+.unity-list-view__empty-label {
+    display: none;
+}
+
+.entryDotError {
+    background-color: rgba(255, 71, 71, 0.8);
+}
+
+.entryDotCommand {
+    background-color: rgb(0, 140, 255);
+}
+
+.carot {
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.carotFocused {
+    -unity-background-image-tint-color: rgba(0, 140, 255, 0.7);
+}

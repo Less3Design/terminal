@@ -1,0 +1,12 @@
+{
+    "name": "less3.terminal",
+    "displayName": "Terminal",
+    "version": "0.0.1",
+    "unity": "2022.3",
+    "description": "A simple Unity console replacement with a command line interface",
+    "author": "Less 3",
+    "keywords": [
+        "Terminal"
+    ],
+    "category": "Unity"
+}

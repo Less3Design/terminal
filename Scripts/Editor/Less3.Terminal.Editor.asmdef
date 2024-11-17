@@ -1,0 +1,18 @@
+{
+    "name": "Less3.Terminal.Editor",
+    "rootNamespace": "Less3.Terminal.Editor",
+    "references": [
+        "GUID:5318bce4b1eaadb48ad5a2969321c19b"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <Style src="project://database/Assets/Less3_Terminal/TerminalWindowStyle.uss?fileID=7433441132597879392&amp;guid=d125781877fb0634c82d883021bf1996&amp;type=3#TerminalWindowStyle" />
+    <ui:VisualElement name="Entry" class="entry" style="align-items: center;">
+        <ui:VisualElement name="Dot" class="entryDot" />
+        <ui:Label tabindex="-1" text="Example Entry" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Text" class="entryText" />
+        <ui:Label tabindex="-1" text="[6.01:32]" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Timestamp" class="entryTimestamp" />
+    </ui:VisualElement>
+</ui:UXML>
