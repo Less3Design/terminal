@@ -28,3 +28,9 @@ The `Log.Print` function is included to help style your command output nicely in
 
 ## Settings
 The terminal settings can be accessed by right clicking anywhere inside the window.
+
+---
+
+### TODO
+- [ ] Light mode unsupported
+- [ ] Package stacktraces untested
