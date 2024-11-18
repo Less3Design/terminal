@@ -39,37 +39,40 @@ namespace Less3.Terminal
 #if UNITY_EDITOR || LESS3_TERMINAL_ENABLE_AT_RUNTIME
         private static void FindAllCommands()
         {
-            foreach (var type in Assembly.GetExecutingAssembly().GetTypes())
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
             {
-                foreach (var method in type.GetMethods())
+                foreach (var type in assembly.GetTypes())
                 {
-                    foreach (var attribute in method.GetCustomAttributes(true))
+                    foreach (var method in type.GetMethods())
                     {
-                        if (attribute is CommandAttribute commandAttribute)
+                        foreach (var attribute in method.GetCustomAttributes(true))
                         {
-                            if (!method.IsStatic)
+                            if (attribute is CommandAttribute commandAttribute)
                             {
-                                Debug.LogWarning($"Method {method.Name} in {type.Name} is not static and cannot be used as a terminal command.");
-                                continue;
-                            }
-                            if (method.GetParameters().Length != 1)
-                            {
-                                Debug.LogWarning($"Method {method.Name} in {type.Name} does not have exactly one parameter and cannot be used as a terminal command.");
-                                continue;
-                            }
-                            if (method.GetParameters()[0].ParameterType != typeof(string[]))
-                            {
-                                Debug.LogWarning($"Method {method.Name} in {type.Name} does not have a string[] parameter and cannot be used as a terminal command.");
-                                continue;
-                            }
+                                if (!method.IsStatic)
+                                {
+                                    Debug.LogWarning($"Method {method.Name} in {type.Name} is not static and cannot be used as a terminal command.");
+                                    continue;
+                                }
+                                if (method.GetParameters().Length != 1)
+                                {
+                                    Debug.LogWarning($"Method {method.Name} in {type.Name} does not have exactly one parameter and cannot be used as a terminal command.");
+                                    continue;
+                                }
+                                if (method.GetParameters()[0].ParameterType != typeof(string[]))
+                                {
+                                    Debug.LogWarning($"Method {method.Name} in {type.Name} does not have a string[] parameter and cannot be used as a terminal command.");
+                                    continue;
+                                }
 
-                            if (commandAttribute.subCommand == null)
-                            {
-                                commands.Add(commandAttribute.command.ToLower(), method);
-                            }
-                            else
-                            {
-                                commands.Add($"{commandAttribute.command.ToLower()}%{commandAttribute.subCommand.ToLower()}", method);
+                                if (commandAttribute.subCommand == null)
+                                {
+                                    commands.Add(commandAttribute.command.ToLower(), method);
+                                }
+                                else
+                                {
+                                    commands.Add($"{commandAttribute.command.ToLower()}%{commandAttribute.subCommand.ToLower()}", method);
+                                }
                             }
                         }
                     }
