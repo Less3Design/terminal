@@ -125,10 +125,11 @@
 
 .entryTextCommand {
     color: rgb(0, 140, 255);
+    -unity-font-style: bold;
 }
 
 .entryTextCommandOut {
-    color: rgba(13, 146, 255, 0.95);
+    color: rgba(0, 140, 255, 0.8);
 }
 
 .entryDotWarning {
